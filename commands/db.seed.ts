@@ -1,6 +1,7 @@
 import initDb from "../utils/initDatabase";
 import games from "../data/games";
 import platforms from "../data/platforms";
+import parcsJardins from "../data/parcs-jardins";
 
 type PlatformData = {
   code: number;
@@ -77,6 +78,7 @@ initDb().then(async (client) => {
 
   await db.collection("games").insertMany(gamesWithPtfs);
   await db.collection("platforms").insertMany(platformsWithGames);
+  await db.collection("parcs-jardins").insertMany(parcsJardins);
 
   console.log("data imported");
   client.close();

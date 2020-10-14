@@ -1,0 +1,28 @@
+{% extends "layout/index.njk" %}
+
+{% block title %}
+  <title>Parcs de lille</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="../../assets/styles/parcsJardin.css">
+{% endblock %}
+
+{% block content %}
+  <h1>Parcs</h1>
+  <ul>
+    {% for parc in parcsJardinss %}
+      
+     
+      <li>
+        <div id="indexParcs">
+          <h3>{{parc.fields.nom}}</h3>
+          <h4>{{parc.fields.types}}</h4>
+          <h5>Quartier: {{parc.fields.quartier}}</h5>
+          <h5>Ouvert au public :{{parc.fields.ouvert_au_public}}</h7>
+        </div>
+      </li>
+    
+    {% endfor %}
+  </ul>
+{% endblock %}

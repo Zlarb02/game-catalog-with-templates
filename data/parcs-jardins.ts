@@ -1,4 +1,4 @@
-const jardindelille = [
+const parcsJardins = [
   {
     datasetid: "parcs-jardins-lille-hellemmes-lomme-point",
     recordid: "469bee3befc884387e53f84e13a2aaa2a4121b8b",
@@ -4830,5 +4830,8 @@ const jardindelille = [
   },
 ];
 
-console.log(jardindelille[1]);
-console.log(`\nLe nombre officiel de jardin de la MEL est...\n\n >>>${jardindelille.length}<<<\n\n 🤩\n`);
+console.log(
+  `\nYou executes parcs-jardin.ts file \n\nLe nombre officiel de jardin de la MEL est...\n\n >>>${parcsJardins.length}<<<\n\n 🤩\n`,
+);
+
+export default parcsJardins;
