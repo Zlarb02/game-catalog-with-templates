@@ -46,6 +46,10 @@ function makeApp(db: Db): core.Express {
 
   // GET parcs-jardins
   app.get("/parcs-jardins", parcsJardinsController.index(parcsJardinsModel));
+  // GET personal-page
+  app.get("/personal-page", (_request, response) => response.render("bonus/personal-page/index"));
+  // GET casse-brique
+  app.get("/casse-brique", (_request, response) => response.render("bonus/casse-brique/shiny"));
 
   app.get("/*", (request, response) => {
     if (clientWantsJson(request)) {

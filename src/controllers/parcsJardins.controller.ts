@@ -9,7 +9,7 @@ export function index(parcsJardinsModel: ParcsJardinsModel) {
     if (clientWantsJson(request)) {
       response.json(parcsJardinss);
     } else {
-      response.render("parcsJardins/index", { parcsJardinss });
+      response.render("bonus/parcs-jardins/index", { parcsJardinss });
     }
   };
 }

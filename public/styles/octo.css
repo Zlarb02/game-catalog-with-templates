@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+canvas {
+  background: #eee;
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 80%;
+}
+.fa-home {
+  color: black;
+}
