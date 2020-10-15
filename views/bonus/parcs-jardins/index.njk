@@ -1,7 +1,7 @@
 {% extends "layout/index.njk" %}
 
 {% block title %}
-  <title>Parcs de lille</title>
+  <title>Parcs de la MEL</title>
 {% endblock %}
 
 {% block css %}
@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Parcs</h1>
+  <h1>Parcs et Jardins de la MEL : </h1>
   <ul>
     {% for parc in parcsJardinss %}
       
@@ -17,7 +17,7 @@
       <li>
         <div id="indexParcs">
           <h3>{{parc.fields.nom}}</h3>
-          <h4>{{parc.fields.types}}</h4>
+          <h5>{{parc.fields.types}}</h5>
           <h5>Quartier: {{parc.fields.quartier}}</h5>
           <h5>Ouvert au public :{{parc.fields.ouvert_au_public}}</h7>
         </div>
