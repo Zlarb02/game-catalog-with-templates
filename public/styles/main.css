@@ -36,6 +36,9 @@ body {
   padding: 4%;
   align-items: center;
 }
+#divHomeButton {
+  align-items: center;
+}
 
 #homeButton {
   opacity: 0.6;

@@ -1,32 +1,34 @@
 import { Db } from "mongodb";
 import * as core from "express-serve-static-core";
-import * as dotenv from "dotenv";
-import * as express from "express";
+import express from "express";
 import * as nunjucks from "nunjucks";
-import initDb from "../utils/initDatabase";
 import GameModel, { Game } from "./models/gameModel";
-import PlatformModel, { Platform } from "./models/platformModel";
-import ParcsJardinsModel from "./models/parcsJardinsModel";
 import * as gamesController from "./controllers/games.controller";
+import PlatformModel, { Platform } from "./models/platformModel";
 import * as platformsController from "./controllers/platforms.controller";
+import ParcsJardinsModel from "./models/parcsJardinsModel";
 import * as parcsJardinsController from "./controllers/parcsJardins.controller";
+import bodyParser from "body-parser";
 
-dotenv.config();
-
-const app = express();
-
-app.use("/assets", express.static("public"));
-
-nunjucks.configure("views", {
-  autoescape: true,
-  express: app,
-});
-
-app.set("view engine", "njk");
+const formParser = bodyParser.urlencoded({ extended: true });
+// `extended: true` mean that the parser will try its best to give you
+// meaningful representation of the data that was being sent.
 
 const clientWantsJson = (request: express.Request): boolean => request.get("accept") === "application/json";
 
-function makeApp(db: Db): core.Express {
+const jsonParser = bodyParser.json();
+
+export function makeApp(db: Db): core.Express {
+  const app = express();
+
+  nunjucks.configure("views", {
+    autoescape: true,
+    express: app,
+  });
+
+  app.use("/assets", express.static("public"));
+  app.set("view engine", "njk");
+
   const platformModel = new PlatformModel(db.collection<Platform>("platforms"));
   const gameModel = new GameModel(db.collection<Game>("games"));
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -34,15 +36,19 @@ function makeApp(db: Db): core.Express {
 
   app.get("/", (_request, response) => response.render("pages/home"));
 
-  // GET platforms
   app.get("/platforms", platformsController.index(platformModel));
-  // GET platforms/:slug
+  app.get("/platforms/new", formParser, platformsController.showFormForPlatforms(platformModel));
   app.get("/platforms/:slug", platformsController.show(platformModel));
+  app.post("/platforms/new", formParser, platformsController.create(platformModel));
+  app.put("/platforms/:slug", jsonParser, platformsController.update(platformModel));
+  app.delete("/platforms/:slug", jsonParser, platformsController.destroy(platformModel));
 
-  // GET games
+  app.get("/platforms/:slug/games", gamesController.list(gameModel));
   app.get("/games", gamesController.index(gameModel));
-  // GET platforms/:slug
   app.get("/games/:slug", gamesController.show(gameModel));
+  app.post("/games", jsonParser, gamesController.create(gameModel, platformModel));
+  app.put("/games/:slug", jsonParser, gamesController.update(gameModel));
+  app.delete("/games/:slug", jsonParser, gamesController.destroy(gameModel));
 
   // GET parcs-jardins
   app.get("/parcs-jardins", parcsJardinsController.index(parcsJardinsModel));
@@ -61,13 +67,3 @@ function makeApp(db: Db): core.Express {
 
   return app;
 }
-
-initDb()
-  .then(async (client) => {
-    const app = makeApp(client.db());
-
-    app.listen(process.env.PORT, () => {
-      console.log(`listen on http://localhost:${process.env.PORT}`);
-    });
-  })
-  .catch(console.error);
