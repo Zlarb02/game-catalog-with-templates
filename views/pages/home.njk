@@ -1,18 +1,21 @@
 {% extends "layout/index.njk" %}
 
 {% block content %}
-<img id='imagehome' src="/assets/images/retro.png">
-<div id="homebuttons" class="container d-flex justify-content-between ">
-  <div class="w-50 d-flex justify-content-center">
-    <a href="/games">
-      <button type="button" class="btn btn-dark">Explore Video Games</button>  
-    </a>
-  </div>
-  <div class="w-50 d-flex justify-content-center">
-    <a href="/platforms">
-       <button type="button" class="btn btn-dark">Explore Platforms</button>  
-    </a>
-  </div>
+<div id="divHome">
+  <div id="divHomeButtons" class="row">
+  
+    <div id="divHomeButton" class="col-6">
+      <a href="/games">
+        <button type="button" id="homeButton" class="btn btn-dark">Explore Video Games</button>  
+      </a>
+    </div>
+    <div id="divHomeButton"  class="col-6">
+      <a href="/platforms">
+         <button type="button" id="homeButton" class="btn btn-dark">Explore Platforms</button>  
+      </a>
+    </div>
+    
+</div>
 </div>
 
 {% endblock %}
