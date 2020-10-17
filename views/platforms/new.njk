@@ -4,11 +4,9 @@
   <title>Add a Platform</title>
 {% endblock %}
 
-{% block css %}
- 
-{% endblock %}
 
-{% block content %}
+
+{# {% block content %}
 <div class="jumbotron">
   <h1 >Add a Platform</h1>
 </div>
@@ -25,4 +23,18 @@
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
 
+ #}
+
+
+
+{% block css %}
+  <link rel="stylesheet" href="/assets/styles/platforms.css">
+{% endblock %}
+
+{% block content %}
+  <h1>Create a Platform</h1>
+
+  <div class="container">
+    {% include "platforms/_form.njk" %}
+  </div>
 {% endblock %}
