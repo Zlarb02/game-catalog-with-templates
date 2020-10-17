@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/src/server.js",
+    "start": "node dist/src/index.js",
     "dev": "nodemon",
     "test": "eslint --ext .js,.ts . && jest",
     "db:seed": "ts-node commands/db.seed.ts",
