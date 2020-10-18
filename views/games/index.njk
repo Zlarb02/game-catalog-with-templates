@@ -5,10 +5,13 @@
 {% endblock %}
 
 {% block css %}
+  <link rel="stylesheet" href="/assets/styles/games.css">
 {% endblock %}
 
 {% block content %}
+<div class="jumbotron">
   <h1>Games</h1>
+</div>
   <ul>
     {% for game in games %}
       <li>

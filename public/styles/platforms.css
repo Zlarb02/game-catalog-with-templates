@@ -1,21 +1,21 @@
-.partial-text {
-  height: 124px;
-  overflow: hidden;
+.jumbotron {
+  padding: 1rem 5rem;
+  margin-bottom: 0;
+  border-radius: 0.3rem;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-@media (min-width: 576px) {
-  .platforms-list .card {
-    width: 100%;
-  }
+
+#cards {
+  padding: 0.2vw;
+  background-color: rgba(240, 248, 255, 0.8);
 }
-@media (min-width: 768px) {
-  .platforms-list .card {
-    width: 44%;
-  }
+#card {
+  height: 100%;
+  opacity: 0.9;
 }
-@media (min-width: 992px) {
-  .platforms-list .card {
-    width: 30%;
-  }
-}
-@media (min-width: 1200px) {
+.addplatformform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 1rem 12rem 1rem;
 }

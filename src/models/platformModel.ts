@@ -90,11 +90,10 @@ export default class PlatformModel {
       }
     });
 
-    /* const platformLogo = payload.platform_logo as { width: number; height: number; url: string };
+    const platformLogo = payload.platform_logo as { width: number; height: number; url: string };
     if ((platformLogo && !platformLogo.height && !platformLogo.width && !platformLogo.url) || !payload.platform_logo) {
       errors.push("Field 'platform_logo' must be present with width, height and url.");
     }
- */
     return errors;
   }
 }

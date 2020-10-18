@@ -1,21 +1,42 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">Pogo's App</a>
+  <a class="navbar-brand" href="/"> <i class="fas fa-home fas-x0.5"></i>  Pogod'App</a> 
+  <a class="nav-link d-none d-sm-flex" href="/platforms">Platforms</a>
+  <a class="nav-link d-none d-sm-flex" href="/games">Games</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link d-none d-sm-block" href="/games">Games</a>
-      </li>
-      <li>
-        <a class="nav-link d-none d-sm-block" href="/platforms">Platforms</a>
+    <ul class="navbar-nav" id="navbar-nav-forcol">
+      <li class="nav-item"> 
+        <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search...">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
      </li>
+      <li class="nav-item"> 
+      <div class="justify-content-center row">
+        <div id="nav-col">
+          <a id="nav-btn" class="nav-btn btn btn-outline-info bg-opaci3 d-flex d-sm-none" href="/games">Games list</a>
+        </div>
+        <div id="nav-col">
+          <a id="nav-btn" class="btn nav-btn btn-outline-info bg-opaci3 d-flex d-sm-none" href="/platforms">Platforms list</a>
+        </div>    
+      </div>
+      <div class="justify-content-center row">
+        <div id="nav-col">
+          <a id="nav-btn" class="btn nav-btn btn-outline-warning bg-opaci3 d-flex" href="/games/new">Add a game</a>
+        </div>
+        <div id="nav-col">
+          <a id="nav-btn"class="nav-btn btn btn-outline-warning bg-opaci3 d-flex" href="/platforms/new">Add a platform</a>
+        </div>
+      </div>
+      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0" method="GET" action="/platforms/new">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
+
