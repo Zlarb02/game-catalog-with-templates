@@ -45,8 +45,9 @@ export function makeApp(db: Db): core.Express {
 
   app.get("/platforms/:slug/games", gamesController.list(gameModel));
   app.get("/games", gamesController.index(gameModel));
+  app.get("/games/new", formParser, gamesController.showFormForGames(gameModel));
   app.get("/games/:slug", gamesController.show(gameModel));
-  app.post("/games", jsonParser, gamesController.create(gameModel, platformModel));
+  app.post("/games/new", jsonParser, gamesController.create(gameModel, platformModel));
   app.put("/games/:slug", jsonParser, gamesController.update(gameModel));
   app.delete("/games/:slug", jsonParser, gamesController.destroy(gameModel));
 

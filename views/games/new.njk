@@ -1,0 +1,42 @@
+{% extends "layout/index.njk" %}
+
+{% block title %}
+  <title>Add a game</title>
+{% endblock %}
+
+
+
+{# {% block content %}
+<div class="jumbotron">
+  <h1 >Add a game</h1>
+</div>
+
+<form class="form-inline my-2 my-lg-0" method="POST" action="/games/new#New">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" name="name">
+  </div>
+  <div class="form-group">
+    <label for="summary">Summary</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="summary" placeholder="Another input">
+  </div>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+ #}
+
+
+
+{% block css %}
+  <link rel="stylesheet" href="/assets/styles/games.css">
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>Create a game</h1>
+</div>
+
+  <div class="container">
+    {% include "games/_form.njk" %}
+  </div>
+{% endblock %}

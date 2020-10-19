@@ -15,6 +15,16 @@ export function index(gameModel: GameModel) {
     }
   };
 }
+export function showFormForGames(gameModel: GameModel) {
+  return async (request: express.Request, response: express.Response): Promise<void> => {
+    const games = await gameModel.findAll();
+    if (clientWantsJson(request)) {
+      response.json(games);
+    } else {
+      response.render("games/new", { games });
+    }
+  };
+}
 
 export function show(gameModel: GameModel) {
   return async (request: express.Request, response: express.Response): Promise<void> => {
